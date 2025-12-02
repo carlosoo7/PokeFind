@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeFind</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header id="Banner">
+    <h1 id="P_Banner">Bienvenidos a PokeFind</h1>
+</header>
+
+<nav id="navbar">
+    <a class="logo" href="#">PokeFind</a>
+
+    <div class="search-container">
+        <input type="text" id="searchId" placeholder="Buscar por ID">
+        <button onclick="buscarPorId()">Buscar</button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchName" placeholder="Buscar por Nombre">
+        <button onclick="buscarPorNombre()">Buscar</button>
+    </div>
+</nav>
+
+<main>
+    <section id="productos">
+        <h2 id="N_Productod">Busca tu Pokémon por ID o Nombre</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img src="img/Sans.png" alt="Producto 1">
+                <h3>Peluche Sans</h3>
+                <p>Heh, ¿así que quieres un peluche de Sans, eh?... </p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="img/Papyrus.png" alt="Producto 2">
+                <h3>Peluche Papyrus</h3>
+                <p>¡NYYYEEEH HEH HEH! ¡HUMANO! ¡EL MEJOR PELUCHE JAMÁS CREADO!...</p>
+                <button>Comprar</button>
+            </div>
+
+            <div class="card">
+                <img src="img/Flowey.png" alt="Producto 3">
+                <h3>Peluche Flowey</h3>
+                <p>Un peluche con mis perfectos pétalos amarillos...</p>
+                <button>Comprar</button>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer id="foot">
+    <p>&copy; 2024 PokeFind. Todos los derechos reservados.</p>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

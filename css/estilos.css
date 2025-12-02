@@ -1,0 +1,168 @@
+:root {
+    --color-primario: black;
+    --color-secundario: rgb(19, 79, 100);
+    --color-fondo: #f0f8ff;
+}
+
+/* ======= GENERAL ======= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+/* ======= BANNER ======= */
+#Banner {
+    background-image: url("/img/Pokmon.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 180px 50px;
+}
+
+#P_Banner {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: white;
+    font-size: 3rem;
+}
+
+/* ======= NAVBAR SIN BOOTSTRAP ======= */
+#navbar {
+    background: black;
+    opacity: 85%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid gray;
+}
+
+#navbar .logo {
+    color: white;
+    font-size: 1.6rem;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ====== BARRAS DE BÚSQUEDA ====== */
+.search-container {
+    display: flex;
+    gap: 5px;
+}
+
+.search-container input {
+    padding: 8px;
+    border: 2px solid gray;
+    border-radius: 4px;
+    background-color: var(--color-secundario);
+    color: white;
+    font-size: 0.9rem;
+}
+
+.search-container button {
+    padding: 8px 15px;
+    background-color: rgb(0, 136, 255);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.search-container button:hover {
+    background-color: rgb(0, 110, 209);
+}
+
+/* ======= FONDOS PRINCIPALES ======= */
+main {
+    background-image: url("/img/Fondo3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 40px;
+}
+
+/* ======= TITULOS ======= */
+#N_Productod {
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 1.8rem;
+    padding-top: 20px;
+}
+
+/* ======= TARJETAS ======= */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background-color: rgba(0,0,0,0.7);
+    width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    border: 2px solid gray;
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
+
+.card h3 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
+    font-size: 1.8rem;
+    color: white;
+    margin: 10px 0;
+}
+
+.card p {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+    padding: 0 10px 10px;
+}
+
+.card button {
+    width: 80%;
+    margin: 10px auto 20px;
+    display: block;
+    padding: 10px 15px;
+    background-color: rgb(19, 150, 19);
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: rgb(11, 110, 11);
+}
+
+/* ======= FOOTER ======= */
+#foot {
+    background-color: black;
+    color: white;
+    border-top: 2px solid gray;
+    text-align: center;
+    padding: 15px;
+}
