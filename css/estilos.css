@@ -1,12 +1,19 @@
 :root {
     --color-primario: rgb(255, 255, 255);
-    --color-secundario: rgb(0, 0, 0);    
+    --color-secundario: rgb(0, 0, 0);
+    /* Transicion suave de color */
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* ======= GENERAL ======= */
+body, main, #Banner {
+    transition: background-color 0.5s ease, 
+                background-image 0.8s ease-in-out,
+                filter 0.5s ease;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: black;
+    background-color: var(--color-secundario);
     margin: 0;
     padding: 0;
 }
@@ -29,13 +36,13 @@ h1, h2 {
 
 #P_Banner {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
-    color: white;
+    color: var(--color-primario);
     font-size: 3rem;
 }
 
 /* ======= NAVBAR ======= */
 #navbar {
-    background: black;
+    background: var(--color-secundario);
     opacity: 85%;
     padding: 10px;
     display: flex;
@@ -49,11 +56,58 @@ h1, h2 {
 }
 
 #navbar .logo {
-    color: white;
+    color: var(--color-primario);
     font-size: 1.6rem;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-decoration: none;
     font-weight: bold;
+}
+
+#Claro{
+    margin-left: 30rem;
+}
+
+/* SWITCH DE MODO OSCURO/CLARO */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-left: 1rem;
+}
+
+.switch input { display: none; }
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;  
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 26px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4b79ff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
 }
 
 /* ====== BARRAS DE BÚSQUEDA ====== */
@@ -67,7 +121,7 @@ h1, h2 {
     border: 2px solid gray;
     border-radius: 4px;
     background-color: var(--color-secundario);
-    color: white;
+    color: var(--color-primario);
     font-size: 0.9rem;
 }
 
@@ -75,7 +129,7 @@ h1, h2 {
     padding: 8px 15px;
     background-color: rgb(0, 136, 255);
     border: none;
-    color: white;
+    color: var(--color-primario);
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
@@ -95,7 +149,7 @@ main {
 
 /* ======= TITULOS ======= */
 #N_Productod {
-    color: white;
+    color: var(--color-primario);
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-align: center;
     font-size: 3rem;
@@ -112,7 +166,7 @@ main {
 }
 
 .card {
-    background-color: rgba(0,0,0,0.93);
+    background-color: var(--color-secundario);
     width: 280px;
     border-radius: 12px;
     overflow: hidden;
@@ -136,7 +190,7 @@ main {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-align: center;
     font-size: 1.8rem;
-    color: white;
+    color: var(--color-primario);
     margin: 10px 0;
 }
 
@@ -144,7 +198,7 @@ main {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 0.9rem;
     text-align: center;
-    color: white;
+    color: var(--color-primario);
     padding: 0 10px 10px;
 }
 
@@ -155,7 +209,7 @@ main {
     padding: 10px 15px;
     background-color: rgb(19, 150, 19);
     border: none;
-    color: white;
+    color: var(--color-primario);
     font-weight: bold;
     border-radius: 8px;
     cursor: pointer;
@@ -171,7 +225,7 @@ main {
 .stats-container {
     padding: 10px;
     width: 20rem;
-    color: white;
+    color: var(--color-primario);
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 0.9rem;
 }
@@ -243,8 +297,8 @@ main {
 
 /* ======= FOOTER ======= */
 #foot {
-    background-color: black;
-    color: white;
+    background-color: var(--color-secundario);
+    color: var(--color-primario);
     border-top: 2px solid gray;
     text-align: center;
     padding: 15px;

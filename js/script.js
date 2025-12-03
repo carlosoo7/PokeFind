@@ -90,6 +90,25 @@ function mostrarTipos(data) {
     });
 }
 
+//Funcion Modo CLaro/Oscuro
+function toggleTheme() {
+    const body = document.body;
+    const toggle = document.getElementById("themeToggle");
+
+    if (toggle.checked) {
+      //Invertir colores y cambiar imagenes de fondo
+      document.documentElement.style.setProperty("--color-primario", "rgb(0, 0, 0)");
+      document.documentElement.style.setProperty("--color-secundario", "rgb(255, 255, 255)");
+      document.getElementById("Banner").style.backgroundImage = 'url("/img/Pokmonclaro.jpg")';
+      document.querySelector("main").style.backgroundImage = 'url("/img/Fondoclaro.jpg")';
+    } else {
+      document.documentElement.style.setProperty("--color-primario", "rgb(255, 255, 255)");
+      document.documentElement.style.setProperty("--color-secundario", "rgb(0, 0, 0)");
+      document.getElementById("Banner").style.backgroundImage = 'url("/img/Pokmon.jpg")';
+      document.querySelector("main").style.backgroundImage = 'url("/img/Fondo3.jpg")';
+    }
+}
+
 //Funcion para rellenar tarjetas al inicio
 async function Random() {
   for (let index = 0 ; index < 4 ; index++) {
