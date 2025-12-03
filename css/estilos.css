@@ -98,7 +98,7 @@ main {
     color: white;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 3rem;
     padding-top: 20px;
 }
 
@@ -167,7 +167,7 @@ main {
 
 /* Aqui va todo lo de la tarjeta completa con busqueda */
 
-/* colores de barras de estadisticas */
+/* colores y barras de estadisticas */
 .stats-container {
     padding: 10px;
     width: 20rem;
@@ -198,6 +198,48 @@ main {
     transition: width 0.6s ease-in-out;
 }
 
+/* colores y Tipos del pokemon */
+
+.types-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.type-badge {
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* COLORES POR TIPO */
+.type-normal   { background: #A8A878; color: black; }
+.type-fire     { background: #F08030; color: white; }
+.type-water    { background: #6890F0; color: white; }
+.type-electric { background: #F8D030; color: black; }
+.type-grass    { background: #78C850; color: black; }
+.type-ice      { background: #98D8D8; color: black; }
+.type-fighting { background: #C03028; color: white; }
+.type-poison   { background: #A040A0; color: white; }
+.type-ground   { background: #E0C068; color: black; }
+.type-flying   { background: #A890F0; color: black; }
+.type-psychic  { background: #F85888; color: white; }
+.type-bug      { background: #A8B820; color: black; }
+.type-rock     { background: #B8A038; color: black; }
+.type-ghost    { background: #705898; color: white; }
+.type-dragon   { background: #7038F8; color: white; }
+.type-dark     { background: #705848; color: white; }
+.type-steel    { background: #B8B8D0; color: black; }
+.type-fairy    { background: #EE99AC; color: black; }
+.type-shadow   { background: #5A005A; color: white; }
+.type-unknown  { background: #68A090; color: black; }
+.type-stellar  { background: linear-gradient(45deg, #d7bbff, #a4e4ff); color: black; }
 
 /* ======= FOOTER ======= */
 #foot {

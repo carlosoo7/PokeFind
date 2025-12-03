@@ -14,14 +14,8 @@
 
 <nav id="navbar">
     <a class="logo" href="#">PokeFind</a>
-
     <div class="search-container">
-        <input type="text" id="searchId" placeholder="Buscar por ID">
-        <button onclick="buscarPorId()">Buscar</button>
-    </div>
-
-    <div class="search-container">
-        <input type="text" id="searchName" placeholder="Buscar por Nombre">
+        <input type="text" id="searchName" placeholder="Buscar por ID o Nombre">
         <button onclick="buscarPorNombre()">Buscar</button>
     </div>
 </nav>
@@ -31,17 +25,21 @@
         <h2 id="N_Productod">Pokemons Aleatorios</h2>
 
         <div class="cards">
-            <div id="Busqueda" style="display:none;">
+            <div id="Busqueda" style="display:none;">                
                 <div class="card" id="cardBusqueda">
-                    <div>
-                        <h3 id="title">...</h3>
+                    <div>                        
                         <img id="img" alt="Pokemon 1">
                         <h3 id="id">...</h3>
                         <p id="descripcion">...</p>
+                    </div>
+                    <div class="derecha">                    
+                        <div id="stats" class="stats-container">
+                            <!-- Aquí JS insertará barras de estats-->
+                        </div>
+                        <div id="types" class="types-container">
+                            <!-- Aquí JS insertará Los tipos-->
+                        </div>  
                     </div>                    
-                    <div id="stats" class="stats-container">
-                        <!-- Aquí JS insertará barras de estats-->
-                    </div>                
                 </div> 
             </div>
             <div class="card" id="ocult0">
@@ -73,7 +71,7 @@
 </main>
 
 <footer id="foot">
-    <p>&copy; 2024 PokeFind. Todos los derechos reservados.</p>
+    <p>&copy; 2025 PokeFind. Todos los derechos reservados.</p>
 </footer>
 
 <script src="js/script.js"></script>

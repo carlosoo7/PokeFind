@@ -34,13 +34,15 @@ async function buscarPorNombre() {
     document.getElementById('N_Productod').textContent="Pokemon No Encontrado";
     return;
   }
+ 
   const data = await res.json();
   const dataSpecies= await resEspecie.json();
-
   //Agregamos a la tarjeta los datos principales (Nombre/Imagen/id/descricpion)
   const imagen = data.sprites.other["official-artwork"].front_default;
   document.getElementById(`img`).src = imagen;
-  document.getElementById(`title`).textContent=data.name;
+  let name = data.name;
+  name = name.charAt(0).toUpperCase() + name.slice(1);
+  document.getElementById('N_Productod').textContent=name;
   document.getElementById(`id`).textContent="id: " + data.id;
   const descripciones = dataSpecies.flavor_text_entries.filter(
     (entry) => entry.language.name === "es"
@@ -48,25 +50,8 @@ async function buscarPorNombre() {
   const descripcionReciente = descripciones.pop().flavor_text.replace(/\n|\f/g, " ");
   document.getElementById(`descripcion`).textContent = descripcionReciente;  
   renderStats(data.stats, "stats");
+  mostrarTipos(data);
   document.getElementById("Busqueda").style.display = "block";
-}
-
-
-//Funcion Buscar por Id
-async function buscarPorId() {
-  const seachId= document.getElementById("searchId").value;
-  const url = `https://pokeapi.co/api/v2/pokemon/${seachId}`;
-  const res = await fetch(url);
-
-  if (!res.ok) {
-    console.log("Pokémon no encontrado");
-    return;
-  }
-
-  const data = await res.json();
-
-  console.log("ID:", data.id);
-  console.log("Nombre:", data.name);
 }
 
 
@@ -89,7 +74,21 @@ function renderStats(stats, containerId) {
         `;
     });
 }
+//Funcion para mostrar los tipos de pokemon
+function mostrarTipos(data) {
+    const typesDiv = document.getElementById("types");
+    typesDiv.innerHTML = ""; // limpiar
 
+    data.types.forEach(t => {
+        const tipo = t.type.name; // nombre del tipo
+
+        const badge = document.createElement("span");
+        badge.classList.add("type-badge", `type-${tipo}`);
+        badge.textContent = tipo;
+
+        typesDiv.appendChild(badge);
+    });
+}
 
 //Funcion para rellenar tarjetas al inicio
 async function Random() {
