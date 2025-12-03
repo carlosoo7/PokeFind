@@ -119,7 +119,14 @@ main {
     box-shadow: 0 0 10px rgba(255,255,255,0.2);
     border: 2px solid gray;
 }
-
+#cardBusqueda {
+    display: flex;              
+    flex-direction: row;
+    width: 40rem;
+    gap: 15px;                  
+    align-items: center;        
+    padding: 10px;              
+}
 .card img {
     width: 100%;
     display: block;
@@ -163,6 +170,7 @@ main {
 /* colores de barras de estadisticas */
 .stats-container {
     padding: 10px;
+    width: 20rem;
     color: white;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 0.9rem;

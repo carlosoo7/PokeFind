@@ -26,7 +26,7 @@ async function buscarPorNombre() {
   const urlSpecie = `https://pokeapi.co/api/v2/pokemon-species/${seachName}`;
   const res = await fetch(url);
   const resEspecie = await fetch(urlSpecie);
-  for (let index = 0 ; index < 3 ; index++) {
+  for (let index = 0 ; index < 4 ; index++) {
   document.getElementById(`ocult${index}`).style.display = "none";
   }
 //Si no encuentra
@@ -39,16 +39,16 @@ async function buscarPorNombre() {
 
   //Agregamos a la tarjeta los datos principales (Nombre/Imagen/id/descricpion)
   const imagen = data.sprites.other["official-artwork"].front_default;
-  document.getElementById(`img0`).src = imagen;
-  document.getElementById(`title0`).textContent=data.name;
-  document.getElementById(`id0`).textContent="id: " + data.id;
+  document.getElementById(`img`).src = imagen;
+  document.getElementById(`title`).textContent=data.name;
+  document.getElementById(`id`).textContent="id: " + data.id;
   const descripciones = dataSpecies.flavor_text_entries.filter(
     (entry) => entry.language.name === "es"
   );
   const descripcionReciente = descripciones.pop().flavor_text.replace(/\n|\f/g, " ");
-  document.getElementById(`descripcion0`).textContent = descripcionReciente;  
+  document.getElementById(`descripcion`).textContent = descripcionReciente;  
   renderStats(data.stats, "stats");
-  document.getElementById("stats").style.display = "block";
+  document.getElementById("Busqueda").style.display = "block";
 }
 
 
