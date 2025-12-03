@@ -1,5 +1,7 @@
 const navbar = document.getElementById("vars");
 
+
+
 // Posición inicial del navbar
 const navbarOffsetTop = navbar.offsetTop;
 
@@ -13,5 +15,6 @@ function fixNavbarOnScroll() {
 }
 // Evento de scroll
 window.addEventListener("scroll", fixNavbarOnScroll);
+
 
 
