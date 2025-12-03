@@ -97,6 +97,7 @@ main {
 #N_Productod {
     color: white;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
     font-size: 1.8rem;
     padding-top: 20px;
 }
@@ -111,7 +112,7 @@ main {
 }
 
 .card {
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.93);
     width: 280px;
     border-radius: 12px;
     overflow: hidden;
@@ -156,6 +157,39 @@ main {
 .card button:hover {
     background-color: rgb(11, 110, 11);
 }
+
+/* Aqui va todo lo de la tarjeta completa con busqueda */
+
+/* colores de barras de estadisticas */
+.stats-container {
+    padding: 10px;
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 0.9rem;
+}
+
+.stat-row {
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    margin-bottom: 3px;
+}
+
+.stat-bar {
+    height: 10px;
+    background: gray;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.stat-fill {
+    height: 100%;
+    background: rgb(0, 200, 0);
+    width: 0%;
+    transition: width 0.6s ease-in-out;
+}
+
 
 /* ======= FOOTER ======= */
 #foot {

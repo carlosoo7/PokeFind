@@ -19,22 +19,40 @@ function fixNavbarOnScroll() {
 // Evento de scroll
 window.addEventListener("scroll", fixNavbarOnScroll);
 
+//Funcion Buscar por nombre
 async function buscarPorNombre() {
   const seachName= document.getElementById("searchName").value;
   const url = `https://pokeapi.co/api/v2/pokemon/${seachName}`;
+  const urlSpecie = `https://pokeapi.co/api/v2/pokemon-species/${seachName}`;
   const res = await fetch(url);
-
+  const resEspecie = await fetch(urlSpecie);
+  for (let index = 0 ; index < 3 ; index++) {
+  document.getElementById(`ocult${index}`).style.display = "none";
+  }
+//Si no encuentra
   if (!res.ok) {
-    console.log("Pokémon no encontrado");
+    document.getElementById('N_Productod').textContent="Pokemon No Encontrado";
     return;
   }
-
   const data = await res.json();
+  const dataSpecies= await resEspecie.json();
 
-  console.log("ID:", data.id);
-  console.log("Nombre:", data.name);
+  //Agregamos a la tarjeta los datos principales (Nombre/Imagen/id/descricpion)
+  const imagen = data.sprites.other["official-artwork"].front_default;
+  document.getElementById(`img0`).src = imagen;
+  document.getElementById(`title0`).textContent=data.name;
+  document.getElementById(`id0`).textContent="id: " + data.id;
+  const descripciones = dataSpecies.flavor_text_entries.filter(
+    (entry) => entry.language.name === "es"
+  );
+  const descripcionReciente = descripciones.pop().flavor_text.replace(/\n|\f/g, " ");
+  document.getElementById(`descripcion0`).textContent = descripcionReciente;  
+  renderStats(data.stats, "stats");
+  document.getElementById("stats").style.display = "block";
 }
 
+
+//Funcion Buscar por Id
 async function buscarPorId() {
   const seachId= document.getElementById("searchId").value;
   const url = `https://pokeapi.co/api/v2/pokemon/${seachId}`;
@@ -51,8 +69,31 @@ async function buscarPorId() {
   console.log("Nombre:", data.name);
 }
 
+
+//Funcion encargada de llenar la tarjeta con estadisticas del pokemon
+function renderStats(stats, containerId) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = ""; // limpiar
+
+    stats.forEach(stat => {
+        const nombre = stat.stat.name.toUpperCase(); // HP, ATTACK, etc.
+        const valor = stat.base_stat;
+        const porcentaje = Math.min(valor, 100); // límite visual
+        container.innerHTML += `
+            <div class="stat-row">
+                <div class="stat-label">${nombre}: ${valor}</div>
+                <div class="stat-bar">
+                    <div class="stat-fill" style="width: ${porcentaje}%;"></div>
+                </div>
+            </div>
+        `;
+    });
+}
+
+
+//Funcion para rellenar tarjetas al inicio
 async function Random() {
-  for (let index = 0 ; index < 6 ; index++) {
+  for (let index = 0 ; index < 4 ; index++) {
   const numeroRandom = Math.floor(Math.random() * 1000) + 1;
   //setear id
   document.getElementById(`id${index}`).textContent="id: " + numeroRandom;
@@ -64,12 +105,11 @@ async function Random() {
   const dataPokemon = await resPokemon.json(); //Json
   const resSpecies = await fetch(urlSpeciesRandom);
   const dataSpecies = await resSpecies.json(); //Json
+  //Nombre
+  document.getElementById(`title${index}`).textContent=dataPokemon.name;
   //Imagen
   const imagen = dataPokemon.sprites.other["official-artwork"].front_default;
   document.getElementById(`img${index}`).src = imagen;
-  //Nombre y descripcion
-  document.getElementById(`title${index}`).textContent=dataPokemon.name;
-
   // Filtrar descripciones en español
   const descripciones = dataSpecies.flavor_text_entries.filter(
     (entry) => entry.language.name === "es"
