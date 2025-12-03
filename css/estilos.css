@@ -37,14 +37,14 @@ h1, h2 {
 #P_Banner {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     color: var(--color-primario);
-    font-size: 3rem;
+    font-size: 3rem;    
 }
 
 /* ======= NAVBAR ======= */
 #navbar {
     background: var(--color-secundario);
     opacity: 85%;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
@@ -63,8 +63,9 @@ h1, h2 {
     font-weight: bold;
 }
 
-#Claro{
-    margin-left: 30rem;
+#Claro {
+    margin-left: auto;
+    text-align: end;
 }
 
 /* SWITCH DE MODO OSCURO/CLARO */
@@ -302,4 +303,168 @@ main {
     border-top: 2px solid gray;
     text-align: center;
     padding: 15px;
+}
+
+
+/* RESPONSIVE */
+
+/* ---- Pantallas grandes (1200px+) ---- */
+@media (min-width: 1200px) {
+    #cardBusqueda {
+        width: 50rem;
+    }
+}
+
+/* ---- Laptops y tablets horizontales (1024px) ---- */
+@media (max-width: 1024px) {
+
+    #Banner {
+        padding: 140px 30px;
+        background-position: center;
+    }
+
+    .cards {
+        gap: 15px;
+        padding: 15px;
+    }
+
+    #cardBusqueda {
+        width: 90%;
+        flex-direction: row;
+    }
+}
+
+/* ---- Tablets verticales y celulares grandes (768px) ---- */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    #navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    #Claro {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+
+    .search-container input {
+        width: 70%;
+    }
+
+    .search-container button {
+        width: 30%;
+    }
+
+    /* BANNER */
+    #Banner {
+        padding: 120px 20px;
+        text-align: center;
+    }
+
+    #P_Banner {
+        font-size: 2.2rem;
+    }
+
+    /* Tarjetas random */
+    .card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    /* Card de búsqueda */
+    #cardBusqueda {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    #cardBusqueda img {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .stats-container {
+        width: 100%;
+    }
+
+    main {
+        padding-bottom: 30px;
+    }
+}
+
+/* ---- Celulares pequeños (480px) ---- */
+@media (max-width: 480px) {
+
+    #Banner {
+        padding: 100px 15px;
+    }
+
+    #P_Banner {
+        font-size: 1.8rem;
+    }
+
+    #navbar {
+        padding: 10px;
+    }
+
+    .search-container input {
+        width: 65%;
+        font-size: 0.8rem;
+    }
+
+    .search-container button {
+        width: 35%;
+        padding: 7px;
+        font-size: 0.8rem;
+    }
+
+    /* Tarjetas */
+    .card {
+        width: 95%;
+    }
+
+    .card h3 {
+        font-size: 1.4rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+
+    /* Card búsqueda */
+    #cardBusqueda img {
+        width: 75%;
+    }
+
+    .stats-container {
+        font-size: 0.8rem;
+    }
+
+    .type-badge {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+}
+
+/* ---- Celulares muy pequeños (360px) ---- */
+@media (max-width: 360px) {
+
+    #P_Banner {
+        font-size: 1.6rem;
+    }
+
+    .search-container input {
+        width: 60%;
+    }
+
+    .search-container button {
+        width: 40%;
+    }
 }
