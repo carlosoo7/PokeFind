@@ -1,12 +1,21 @@
-const navbar = document.getElementById("vars");
-
-document.addEventListener("DOMContentLoaded", () => {
-  Random();
-});
-
+const navbar = document.getElementById("navbar");
 
 // Posición inicial del navbar
-const navbarOffsetTop = navbar.offsetTop;
+let navbarOffsetTop;
+
+document.addEventListener("DOMContentLoaded", () => {
+  navbarOffsetTop = navbar.offsetTop;
+  const temaGuardado = localStorage.getItem("theme");
+  const toggle = document.getElementById("themeToggle");
+  if (temaGuardado === "dark") {
+    toggle.checked = true;
+    toggleTheme(); // aplica modo oscuro
+  } else {
+    toggle.checked = false;
+    toggleTheme(); // aplica modo claro
+  }
+  Random();
+});
 
 // Función que fija el navbar cuando se hace scroll
 function fixNavbarOnScroll() {
@@ -21,7 +30,7 @@ window.addEventListener("scroll", fixNavbarOnScroll);
 
 //Funcion Buscar por nombre
 async function buscarPorNombre() {
-  const seachName= document.getElementById("searchName").value;
+  const seachName = document.getElementById("searchName").value.toLowerCase().trim();
   const url = `https://pokeapi.co/api/v2/pokemon/${seachName}`;
   const urlSpecie = `https://pokeapi.co/api/v2/pokemon-species/${seachName}`;
   const res = await fetch(url);
@@ -94,18 +103,20 @@ function mostrarTipos(data) {
 function toggleTheme() {
     const body = document.body;
     const toggle = document.getElementById("themeToggle");
-
+    localStorage.setItem("theme", toggle.checked ? "dark" : "light");
     if (toggle.checked) {
       //Invertir colores y cambiar imagenes de fondo
       document.documentElement.style.setProperty("--color-primario", "rgb(0, 0, 0)");
       document.documentElement.style.setProperty("--color-secundario", "rgb(255, 255, 255)");
-      document.getElementById("Banner").style.backgroundImage = 'url("/img/Pokmonclaro.jpg")';
-      document.querySelector("main").style.backgroundImage = 'url("/img/Fondoclaro.jpg")';
+      document.getElementById("Banner").style.backgroundImage = 'url("./img/pokmonclaro.jpg")';
+      document.querySelector("main").style.backgroundImage = 'url("./img/fondoclaro.jpg")';
+      localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.style.setProperty("--color-primario", "rgb(255, 255, 255)");
       document.documentElement.style.setProperty("--color-secundario", "rgb(0, 0, 0)");
-      document.getElementById("Banner").style.backgroundImage = 'url("/img/Pokmon.jpg")';
-      document.querySelector("main").style.backgroundImage = 'url("/img/Fondo3.jpg")';
+      document.getElementById("Banner").style.backgroundImage = 'url("./img/pokmon.jpg")';
+      document.querySelector("main").style.backgroundImage = 'url("./img/fondo3.jpg")';
+      localStorage.setItem("theme", "light");
     }
 }
 

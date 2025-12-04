@@ -28,7 +28,7 @@ h1, h2 {
 
 /* ======= BANNER ======= */
 #Banner {
-    background-image: url("/img/Pokmon.jpg");
+    background-image: url("./img/pokmon.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     padding: 180px 50px;
@@ -142,7 +142,7 @@ input:checked + .slider:before {
 
 /* ======= FONDOS PRINCIPALES ======= */
 main {
-    background-image: url("/img/Fondo3.jpg");
+    background-image: url("./img/fondo3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     padding-bottom: 40px;
